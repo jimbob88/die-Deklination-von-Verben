@@ -22,6 +22,7 @@ print(verben_buch)
 @ManagedScreen
 def demo(screen=None):
     screen.print_at('Hello world!', 0, 0)
+    screen.print_at(u' Call me!', 10, 10, screen.COLOUR_GREEN, screen.A_BOLD)
     screen.refresh()
     time.sleep(10)
 demo()
