@@ -1,4 +1,9 @@
 import xml.etree.ElementTree as ET
+from asciimatics.screen import ManagedScreen
+from asciimatics.scene import Scene
+from asciimatics.effects import Cycle, Stars
+from asciimatics.renderers import FigletText
+import time
 
 tree = ET.parse('dataset.xml')
 root = tree.getroot()
@@ -14,3 +19,9 @@ for verben_gruppe in root:
         print(verb)
 
 print(verben_buch)
+@ManagedScreen
+def demo(screen=None):
+    screen.print_at('Hello world!', 0, 0)
+    screen.refresh()
+    time.sleep(10)
+demo()
