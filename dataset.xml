@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE xml>
+
+<verbdatenbank>
+<verben gruppe="i-a-e">
+    <verb infinitiv="sein" englisch="to be">
+        <indikativ>
+            <präsens verbstamm="n/a">
+                <ich verb="bin"/>
+                <du verb="bist"/>
+                <er verb="ist"/>
+                <wir verb="sind"/>
+                <ihr verb="seid"/>
+                <sie verb="sind"/>
+            </präsens>
+            <präteritum verbstamm="war">
+                <ich verb="war"/>
+                <du verb="warst"/>
+                <er verb="war"/>
+                <wir verb="war"/>
+                <ihr verb="wart"/>
+                <sie verb="waren"/>
+            </präteritum>
+            <perfekt hs="s" partzip="gewesen"/>
+        </indikativ>
+    </verb>
+    <verb infinitiv="essen" englisch="to eat" nachsilben="fr">
+        <indikativ>
+            <präsens verbstamm="ess">
+                <ich verb="esse"/>
+                <du verb="isst"/>
+                <er verb="isst"/>
+                <wir verb="essen"/>
+                <ihr verb="esst"/>
+                <sie verb="essen"/>
+            </präsens>
+            <präteritum verbstamm="aß">
+                <ich verb="aß"/>
+                <du verb="aßt" alt="aßest"/>
+                <er verb="aß"/>
+                <wir verb="aßen"/>
+                <ihr verb="aßt" alt="aßet"/>
+                <sie verb="aßen"/>
+            </präteritum>
+            <perfekt hs="h" partzip="gegessen"/>
+        </indikativ>
+    </verb>
+    <verb infinitiv="geben" englisch="to give">
+        <indikativ>
+            <präsens verbstamm="geb">
+                <ich verb="gebe"/>
+                <du verb="gibst"/>
+                <er verb="gibt"/>
+                <wir verb="geben"/>
+                <ihr verb="gebt"/>
+                <sie verb="geben"/>
+            </präsens>
+            <präteritum verbstamm="gab">
+                <ich verb="gab"/>
+                <du verb="gabst"/>
+                <er verb="gab"/>
+                <wir verb="gaben"/>
+                <ihr verb="gabt"/>
+                <sie verb="gaben"/>
+            </präteritum>
+            <perfekt hs="h" partzip="gegeben"/>
+        </indikativ>
+    </verb>
+    <verb infinitiv="sitzen" englisch="to sit">
+        <indikativ>
+            <präsens verbstamm="sitz">
+                <ich verb="sitze"/>
+                <du verb="sitzt"/>
+                <er verb="sitzt"/>
+                <wir verb="sitzen"/>
+                <ihr verb="sitzt"/>
+                <sie verb="sitzen"/>
+            </präsens>
+            <präteritum verbstamm="saß">
+                <ich verb="saß"/>
+                <du verb="saßt" alt="saßest"/>
+                <er verb="saß"/>
+                <wir verb="saßen"/>
+                <ihr verb="saßt" alt="saßet"/>
+                <sie verb="saßen"/>
+            </präteritum>
+            <perfekt hs="h" partzip="gesessen"/>
+        </indikativ>
+    </verb>
+    <verb infinitiv="treten" englisch="to step">
+        <indikativ>
+            <präsens verbstamm="tret">
+                <ich verb="trete"/>
+                <du verb="trittst"/>
+                <er verb="tritt"/>
+                <wir verb="treten"/>
+                <ihr verb="tretet"/>
+                <sie verb="treten"/>
+            </präsens>
+            <präteritum verbstamm="trat">
+                <ich verb="trat"/>
+                <du verb="tratst" alt="tratest"/>
+                <er verb="trat"/>
+                <wir verb="traten"/>
+                <ihr verb="tratet"/>
+                <sie verb="traten"/>
+            </präteritum>
+            <perfekt hs="s" partzip="getreten"/>
+        </indikativ>
+    </verb>
+    <verb infinitiv="vergessen" englisch="to forget">
+        <indikativ>
+            <präsens verbstamm="vergess">
+                <ich verb="vergesse"/>
+                <du verb="vergisst"/>
+                <er verb="vergisst"/>
+                <wir verb="vergessen"/>
+                <ihr verb="vergesst"/>
+                <sie verb="vergessen"/>
+            </präsens>
+            <präteritum verbstamm="vergaß">
+                <ich verb="vergaß"/>
+                <du verb="vergaßt" alt="vergaßest"/>
+                <er verb="vergaß"/>
+                <wir verb="vergaßen"/>
+                <ihr verb="vergaßt" alt="vergaßet"/>
+                <sie verb="vergaßen"/>
+            </präteritum>
+            <perfekt hs="h" partzip="vergessen"/>
+        </indikativ>
+    </verb>
+</verben>
+
+<verben gruppe="i/o-a-o">
+    <verb infinitiv="beginnen" englisch="to begin">
+        <indikativ>
+            <präsens verbstamm="beginn">
+                <ich verb="beginne"/>
+                <du verb="beginnst"/>
+                <er verb="beginnt"/>
+                <wir verb="beginnen"/>
+                <ihr verb="beginnt"/>
+                <sie verb="beginnen"/>
+            </präsens>
+            <präteritum verbstamm="begann">
+                <ich verb="begann"/>
+                <du verb="begannst"/>
+                <er verb="begann"/>
+                <wir verb="begannen"/>
+                <ihr verb="begannt"/>
+                <sie verb="begannen"/>
+            </präteritum>
+            <perfekt hs="h" partzip="begonnen"/>
+        </indikativ>
+    </verb>
+    <verb infinitiv="brechen" englisch="to break">
+        <indikativ>
+            <präsens verbstamm="brech">
+                <ich verb="breche"/>
+                <du verb="brichst"/>
+                <er verb="bricht"/>
+                <wir verb="brechen"/>
+                <ihr verb="brecht"/>
+                <sie verb="brechen"/>
+            </präsens>
+            <präteritum verbstamm="brach">
+                <ich verb="brach"/>
+                <du verb="brachst"/>
+                <er verb="brach"/>
+                <wir verb="brachen"/>
+                <ihr verb="bracht"/>
+                <sie verb="brachen"/>
+            </präteritum>
+            <perfekt hs="h" partzip="gebrochen"/>
+        </indikativ>
+    </verb>
+    <verb infinitiv="erschrecken" englisch="to startle">
+        <indikativ>
+            <präsens verbstamm="erschreck">
+                <ich verb="erschrecke"/>
+                <du verb="erschrickt"/>
+                <er verb="erschrickt"/>
+                <wir verb="erschrecken"/>
+                <ihr verb="erschreckt"/>
+                <sie verb="erschrecken"/>
+            </präsens>
+            <präteritum verbstamm="erschrak">
+                <ich verb="erschrak"/>
+                <du verb="erschrakst"/>
+                <er verb="erschrak"/>
+                <wir verb="erschraken"/>
+                <ihr verb="erschrakt"/>
+                <sie verb="erschraken"/>
+            </präteritum>
+            <perfekt hs="s" partzip="erschrocken"/>
+        </indikativ>
+    </verb>
+    
+</verben>
+</verbdatenbank>
