@@ -6,13 +6,13 @@
 ![The Main Verb Selection Menu](https://i.imgur.com/yARJJ9c.png)
 
 #### Am I Right?
-![Am I Right?](https://imgur.com/hVLJ0YX)
+![Am I Right?](https://imgur.com/hVLJ0YX.png)
 
 #### I Am Right!
-![I Am Right!](https://imgur.com/8zyr9iO)
+![I Am Right!](https://imgur.com/8zyr9iO.png)
 
 #### The View Mode
-![View Mode](https://imgur.com/zLHKllg)
+![View Mode](https://imgur.com/zLHKllg.png)
 
 #### All Images Database
 You can find the full set of images on: [imgur](https://imgur.com/a/NbBRU18)
