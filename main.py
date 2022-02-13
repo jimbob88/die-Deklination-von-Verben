@@ -60,7 +60,7 @@ def unhandled_input(k):
         focus_widget, idx = views[0].treebox._walker.get_focus()
         # print(views[0].tree[idx[0]+1][idx[1]+1][idx[2]])
         if len(idx) == 3:
-            verb = (views[0].tree[1][idx[1]][1][idx[2]])
+            verb = views[0].tree[1][idx[1]][1][idx[2]]
         loop.widget = verb_view().build(verb)
 
 
@@ -70,16 +70,16 @@ class select_view(object):
 
     def build(self):
         self.tree = [
-                    "All",
-                    [
-                        [
-                            k,
-                            [[verb, data] for verb, data in v.items()],
-                        ]
-                        for k, v in verben_buch.items()
-                    ],
+            "All",
+            [
+                [
+                    k,
+                    [[verb, data] for verb, data in v.items()],
                 ]
-            
+                for k, v in verben_buch.items()
+            ],
+        ]
+
         self.stree = SimpleTree(
             [
                 [
@@ -108,28 +108,19 @@ class select_view(object):
 class verb_view(object):
     def __init__(self):
         pass
-    
+
     def build(self, verb):
         title = urwid.Text(verb[0])
         body = urwid.Text("Hello")
-        body = urwid.Pile([title,body])
+        body = urwid.Pile([title, body])
         fill = urwid.Filler(body)
         return fill
 
+
 print(verben_buch)
 if __name__ == "__main__":
-    # get example tree
-    # stree = construct_example_tree()
-    # stree = SimpleTree([[FocusableText(k), [FocusableText("generic")]] for k, v in verben_buch.items()])
-    
-    # enclose all in a frame
-
-    views = [
-            select_view()
-        ]
+    views = [select_view()]
 
     initial_view = views[0].build()
-    loop = urwid.MainLoop(
-        initial_view, palette, unhandled_input=unhandled_input
-    )
+    loop = urwid.MainLoop(initial_view, palette, unhandled_input=unhandled_input)
     loop.run()
