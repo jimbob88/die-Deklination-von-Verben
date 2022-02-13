@@ -195,6 +195,186 @@
             <perfekt hs="s" partzip="erschrocken"/>
         </indikativ>
     </verb>
-    
+    <verb infinitiv="gelten" englisch="to be validated">
+        <indikativ>
+            <präsens>
+                <ich verb="gelt"/>
+                <du verb="giltst"/>
+                <er verb="gilt"/>
+                <wir verb="gelten"/>
+                <ihr verb="geltet"/>
+                <sie verb="gelten"/>
+            </präsens>
+            <präteritum>
+                <ich verb="galt"/>
+                <du verb="galtst"/>
+                <er verb="galt"/>
+                <wir verb="galten"/>
+                <ihr verb="galtet"/>
+                <sie verb="galten"/>
+            </präteritum>
+        </indikativ>
+    </verb>
+    <verb infinitiv="gewinnen" englisch="to win">
+        <indikativ>
+            <präsens>
+                <ich verb="gewinn"/>
+                <du verb="gewinnst"/>
+                <er verb="gewinnt"/>
+                <wir verb="gewinnen"/>
+                <ihr verb="gewinnt"/>
+                <sie verb="gewinnen"/>
+            </präsens>
+            <präteritum>
+                <ich verb="gewann"/>
+                <du verb="gewannst"/>
+                <er verb="gewann"/>
+                <wir verb="gewannen"/>
+                <ihr verb="gewannt"/>
+                <sie verb="gewannen"/>
+            </präteritum>
+        </indikativ>
+    </verb>
+    <verb infinitiv="helfen" englisch="to help">
+        <indikativ>
+            <präsens>
+                <ich verb="helf"/>
+                <du verb="hilfst"/>
+                <er verb="hilft"/>
+                <wir verb="helfen"/>
+                <ihr verb="helft"/>
+                <sie verb="helfen"/>
+            </präsens>
+            <präteritum>
+                <ich verb="half"/>
+                <du verb="halfst"/>
+                <er verb="half"/>
+                <wir verb="halfen"/>
+                <ihr verb="halft"/>
+                <sie verb="halfen"/>
+            </präteritum>
+        </indikativ>
+    </verb>
+    <verb infinitiv="nehmen" englisch="to take">
+        <indikativ>
+            <präsens>
+                <ich verb="nehm"/>
+                <du verb="nimmst"/>
+                <er verb="nimmt"/>
+                <wir verb="nehmen"/>
+                <ihr verb="nehmt"/>
+                <sie verb="nehmen"/>
+            </präsens>
+            <präteritum>
+                <ich verb="nahm"/>
+                <du verb="nahmst"/>
+                <er verb="nahm"/>
+                <wir verb="nahmen"/>
+                <ihr verb="nahmt"/>
+                <sie verb="nahmen"/>
+            </präteritum>
+        </indikativ>
+    </verb>
+    <verb infinitiv="schwimmen" englisch="to swim">
+        <indikativ>
+            <präsens>
+                <ich verb="schwimm"/>
+                <du verb="schwimmst"/>
+                <er verb="schwimmt"/>
+                <wir verb="schwimmen"/>
+                <ihr verb="schwimmt"/>
+                <sie verb="schwimmen"/>
+            </präsens>
+            <präteritum>
+                <ich verb="schwamm"/>
+                <du verb="schwammst"/>
+                <er verb="schwamm"/>
+                <wir verb="schwammen"/>
+                <ihr verb="schwammt"/>
+                <sie verb="schwammen"/>
+            </präteritum>
+        </indikativ>
+    </verb>
+    <verb infinitiv="sprechen" englisch="to speak">
+        <indikativ>
+            <präsens>
+                <ich verb="sprech"/>
+                <du verb="sprichst"/>
+                <er verb="spricht"/>
+                <wir verb="sprechen"/>
+                <ihr verb="sprecht"/>
+                <sie verb="sprechen"/>
+            </präsens>
+            <präteritum>
+                <ich verb="sprach"/>
+                <du verb="sprachst"/>
+                <er verb="sprach"/>
+                <wir verb="sprachen"/>
+                <ihr verb="spracht"/>
+                <sie verb="sprachen"/>
+            </präteritum>
+        </indikativ>
+    </verb>
+    <verb infinitiv="sterben" englisch="to die">
+        <indikativ>
+            <präsens>
+                <ich verb="sterb"/>
+                <du verb="stirbst"/>
+                <er verb="stirbt"/>
+                <wir verb="sterben"/>
+                <ihr verb="sterbt"/>
+                <sie verb="sterben"/>
+            </präsens>
+            <präteritum>
+                <ich verb="starb"/>
+                <du verb="starbst"/>
+                <er verb="starb"/>
+                <wir verb="starben"/>
+                <ihr verb="starbt"/>
+                <sie verb="starben"/>
+            </präteritum>
+        </indikativ>
+    </verb>
+    <verb infinitiv="treffen" englisch="to meet with">
+        <indikativ>
+            <präsens>
+                <ich verb="treff"/>
+                <du verb="triffst"/>
+                <er verb="trifft"/>
+                <wir verb="treffen"/>
+                <ihr verb="trefft"/>
+                <sie verb="treffen"/>
+            </präsens>
+            <präteritum>
+                <ich verb="traf"/>
+                <du verb="trafst"/>
+                <er verb="traf"/>
+                <wir verb="trafen"/>
+                <ihr verb="traft"/>
+                <sie verb="trafen"/>
+            </präteritum>
+        </indikativ>
+    </verb>
+    <verb infinitiv="werfen" englisch="to throw">
+        <indikativ>
+            <präsens>
+                <ich verb="werf"/>
+                <du verb="wirfst"/>
+                <er verb="wirft"/>
+                <wir verb="werfen"/>
+                <ihr verb="werft"/>
+                <sie verb="werfen"/>
+            </präsens>
+            <präteritum>
+                <ich verb="warf"/>
+                <du verb="warfst"/>
+                <er verb="warf"/>
+                <wir verb="warfen"/>
+                <ihr verb="warft"/>
+                <sie verb="warfen"/>
+            </präteritum>
+        </indikativ>
+    </verb>
+
 </verben>
 </verbdatenbank>
