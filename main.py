@@ -157,23 +157,35 @@ class learn_view(object):
 
     def build(self, verb):
         blank = urwid.Divider()
-        listbox_content = [
+        self.listbox_content = [
             [
                 urwid.Text(tense.tag, align="center"),
                 [
-                    urwid.Edit(f"{declension.tag}:", align="left")
+                    urwid.Edit(f"{declension.tag}: ", align="left")
                     for declension in tense
                 ],
             ]
-            for tense in verb[1][0]
             if tense.tag != "perfekt"
+            else [
+                urwid.Text(tense.tag, align="center"),
+                [urwid.Edit(f"Formed with: "), urwid.Edit(f"Partzip: ")],
+            ]
+            for tense in verb[1][0]
         ]
-        listbox_content = list(flatten((listbox_content)))
-        print(listbox_content)
+        self.enter_button = urwid.Button("Enter")
+        urwid.connect_signal(self.enter_button, "click", self.on_entry)
+        self.listbox_content += [self.enter_button]
+        self.listbox_content = list(flatten(self.listbox_content))
         header = urwid.AttrWrap(urwid.Text(verb[0]), "header")
-        listbox = urwid.ListBox(urwid.SimpleListWalker(listbox_content))
+        listbox = urwid.ListBox(urwid.SimpleListWalker(self.listbox_content))
         frame = urwid.Frame(urwid.AttrWrap(listbox, "body"), header=header)
         return frame
+
+    def on_entry(self, button):
+        for entry in self.listbox_content[:-1]:
+            if type(entry) == urwid.Edit:
+                print(entry.edit_text)
+        print("wow")
 
 
 print(verben_buch)
