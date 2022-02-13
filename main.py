@@ -17,7 +17,9 @@ for verben_gruppe in root:
     print(verben_gruppe.attrib["gruppe"])
     verben_buch[verben_gruppe.attrib["gruppe"]] = {}
     for verb in verben_gruppe:
-        verben_buch[verben_gruppe.attrib["gruppe"]][verb.attrib["infinitiv"]] = [tense for tense in verb]
+        verben_buch[verben_gruppe.attrib["gruppe"]][verb.attrib["infinitiv"]] = [
+            tense for tense in verb
+        ]
         print(verb)
 
 print(verben_buch)
@@ -40,6 +42,7 @@ def flatten(l):
         else:
             yield el
 
+
 class FocusableText(urwid.WidgetWrap):
     """Selectable Text used for nodes in our example"""
 
@@ -60,11 +63,12 @@ def unhandled_input(k):
     if k in ["q", "Q"]:
         raise urwid.ExitMainLoop()
     if k in ["l", "L"]:
-        if not views[0].selected:
-            views[0].selected = views[0].treebox._walker.get_focus()
+        focus_widget, idx = views[0].treebox._walker.get_focus()
+        if len(idx) == 3:
+            verb = views[0].tree[1][idx[1]][1][idx[2]]
+        loop.widget = learn_view().build(verb)
     if k in ["v", "V"]:
         focus_widget, idx = views[0].treebox._walker.get_focus()
-        # print(views[0].tree[idx[0]+1][idx[1]+1][idx[2]])
         if len(idx) == 3:
             verb = views[0].tree[1][idx[1]][1][idx[2]]
         loop.widget = verb_view().build(verb)
@@ -116,18 +120,47 @@ class verb_view(object):
         pass
 
     def build(self, verb):
-        
+
         blank = urwid.Divider()
         listbox_content = [
-            [urwid.Text(tense.tag, align='center'), [[urwid.Text(f"{declension.tag} - {declension.attrib['verb']}")] for declension in tense]
+            [
+                urwid.Text(tense.tag, align="center"),
+                [
+                    [urwid.Text(f"{declension.tag} - {declension.attrib['verb']}")]
+                    for declension in tense
+                ],
             ]
-            for tense in  verb[1][0]
+            for tense in verb[1][0]
         ]
         listbox_content = list(flatten((listbox_content)))
         print(listbox_content)
-        header = urwid.AttrWrap(urwid.Text(verb[0]), 'header')
+        header = urwid.AttrWrap(urwid.Text(verb[0]), "header")
         listbox = urwid.ListBox(urwid.SimpleListWalker(listbox_content))
-        frame = urwid.Frame(urwid.AttrWrap(listbox, 'body'), header=header)
+        frame = urwid.Frame(urwid.AttrWrap(listbox, "body"), header=header)
+        return frame
+
+
+class learn_view(object):
+    def __init__(self):
+        pass
+
+    def build(self, verb):
+        blank = urwid.Divider()
+        listbox_content = [
+            [
+                urwid.Text(tense.tag, align="center"),
+                [
+                    urwid.Edit(f"{declension.tag}:", align="left")
+                    for declension in tense
+                ],
+            ]
+            for tense in verb[1][0]
+        ]
+        listbox_content = list(flatten((listbox_content)))
+        print(listbox_content)
+        header = urwid.AttrWrap(urwid.Text(verb[0]), "header")
+        listbox = urwid.ListBox(urwid.SimpleListWalker(listbox_content))
+        frame = urwid.Frame(urwid.AttrWrap(listbox, "body"), header=header)
         return frame
 
 
