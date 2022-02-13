@@ -64,16 +64,18 @@ def unhandled_input(k):
     # exit on q
     if k in ["q", "Q"]:
         raise urwid.ExitMainLoop()
-    if k in ["l", "L"]:
+    elif k in ["l", "L"]:
         focus_widget, idx = views[0].treebox._walker.get_focus()
         if len(idx) == 3:
             verb = views[0].tree[1][idx[1]][1][idx[2]]
         loop.widget = learn_view().build(verb)
-    if k in ["v", "V"]:
+    elif k in ["v", "V"]:
         focus_widget, idx = views[0].treebox._walker.get_focus()
         if len(idx) == 3:
             verb = views[0].tree[1][idx[1]][1][idx[2]]
         loop.widget = verb_view().build(verb)
+    elif k in ["h", "H"]:
+        loop.widget = select_view().build()
 
 
 class select_view(object):
@@ -189,16 +191,55 @@ class learn_view(object):
         header = urwid.AttrWrap(urwid.Text(verb[0]), "header")
         listbox = urwid.ListBox(urwid.SimpleListWalker(self.listbox_content))
         frame = urwid.Frame(urwid.AttrWrap(listbox, "body"), header=header)
+        self.frame = frame
         return frame
 
     def on_entry(self, button):
-        results = [
+        self.results = [
             entry.edit_text
             for entry in self.listbox_content
             if type(entry) == urwid.Edit
         ]
-        print(results)
+        print(self.results)
         print([ans.strip() for ans in self.answers])
+        self._over = urwid.Overlay(
+            self.answer_dialog(),
+            self.frame,
+            align="center",
+            valign="middle",
+            width=100,
+            height=100,
+        )
+        loop.widget = self._over
+
+    def answer_dialog(self):
+        header_text = urwid.Text(("banner", "Help"), align="center")
+        header = urwid.AttrMap(header_text, "banner")
+
+        # Body
+        # body_text = urwid.Text('Your Results!', align = 'center')
+        print_results = [
+            urwid.Text(
+                f"I: {result} - A: {self.answers[idx]} = {result == self.answers[idx]}"
+            )
+            for idx, result in enumerate(self.results)
+        ]
+        body_filler = urwid.ListBox(urwid.SimpleListWalker(print_results))
+        body_padding = urwid.Padding(body_filler, left=1, right=1)
+        body = urwid.LineBox(body_padding)
+
+        # Footer
+        footer = urwid.Button("Okay", self.do)
+        footer = urwid.AttrWrap(footer, "selectable", "focus")
+        footer = urwid.GridFlow([footer], 8, 1, 1, "center")
+
+        # Layout
+        layout = urwid.Frame(body, header=header, footer=footer, focus_part="footer")
+
+        return layout
+
+    def do(self, thing):
+        loop.widget = self.frame
 
 
 print(verben_buch)
