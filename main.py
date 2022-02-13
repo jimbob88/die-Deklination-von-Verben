@@ -193,7 +193,6 @@ class learn_view(object):
         ]
         print(results) 
         print([ans.strip() for ans in self.answers])
-        # print("wow")
 
 
 print(verben_buch)
