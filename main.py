@@ -1,4 +1,4 @@
-import xml.etree.ElementTree as ET
+from lxml import etree as ET
 import urwid
 import urwidtrees
 from urwidtrees.tree import SimpleTree
