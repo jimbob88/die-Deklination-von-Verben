@@ -11,6 +11,8 @@ tree = ET.parse("dataset.xml")
 root = tree.getroot()
 print(root)
 
+SHORTHAND = {"h": "haben", "s": "sein"}
+
 verben_buch = {}
 
 for verben_gruppe in root:
@@ -130,6 +132,15 @@ class verb_view(object):
                     for declension in tense
                 ],
             ]
+            if tense.tag != "perfekt"
+            else [
+                urwid.Text(tense.tag, align="center"),
+                [
+                    urwid.Text(
+                        f"{SHORTHAND[tense.attrib['hs']]} + {tense.attrib['partzip']}"
+                    )
+                ],
+            ]
             for tense in verb[1][0]
         ]
         listbox_content = list(flatten((listbox_content)))
@@ -155,6 +166,7 @@ class learn_view(object):
                 ],
             ]
             for tense in verb[1][0]
+            if tense.tag != "perfekt"
         ]
         listbox_content = list(flatten((listbox_content)))
         print(listbox_content)
