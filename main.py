@@ -52,6 +52,39 @@ def unhandled_input(k):
     # exit on q
     if k in ["q", "Q"]:
         raise urwid.ExitMainLoop()
+    if k in ["l", "L"]:
+        views[0].selected = views[0].treebox._walker.get_focus()
+        print()
+
+
+class select_view(object):
+    def __init__(self):
+        self.selected = False
+
+    def build(self):
+        stree = SimpleTree(
+            [
+                [
+                    FocusableText("All"),
+                    [
+                        [
+                            FocusableText(k),
+                            [[FocusableText(verb), None] for verb in v.keys()],
+                        ]
+                        for k, v in verben_buch.items()
+                    ],
+                ]
+            ]
+        )
+
+        # put the tree into a treebox
+        self.treebox = TreeBox(ArrowTree(stree))
+
+        # add some decoration
+        rootwidget = urwid.AttrMap(self.treebox, "body")
+        # add a text footer
+        footer = urwid.AttrMap(urwid.Text("Q to quit, L to learn"), "focus")
+        return urwid.Frame(rootwidget, footer=footer)
 
 
 print(verben_buch)
@@ -59,29 +92,15 @@ if __name__ == "__main__":
     # get example tree
     # stree = construct_example_tree()
     # stree = SimpleTree([[FocusableText(k), [FocusableText("generic")]] for k, v in verben_buch.items()])
-    stree = SimpleTree(
-        [
-            [
-                FocusableText("All"),
-                [
-                    [
-                        FocusableText(k),
-                        [[FocusableText(verb), None] for verb in v.keys()],
-                    ]
-                    for k, v in verben_buch.items()
-                ],
-            ]
-        ]
-    )
-
-    # put the tree into a treebox
-    treebox = TreeBox(ArrowTree(stree))
-
-    # add some decoration
-    rootwidget = urwid.AttrMap(treebox, "body")
-    # add a text footer
-    footer = urwid.AttrMap(urwid.Text("Q to quit"), "focus")
+    
     # enclose all in a frame
-    urwid.MainLoop(
-        urwid.Frame(rootwidget, footer=footer), palette, unhandled_input=unhandled_input
-    ).run()
+
+    views = [
+            select_view()
+        ]
+
+    initial_view = views[0].build()
+    loop = urwid.MainLoop(
+        initial_view, palette, unhandled_input=unhandled_input
+    )
+    loop.run()
