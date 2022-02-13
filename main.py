@@ -172,12 +172,16 @@ class learn_view(object):
             ]
             for tense in verb[1][0]
         ]
-        self.answers = list(flatten([
-            [declension.attrib['verb'] for declension in tense]
-            if tense.tag != "perfekt" else
-            [SHORTHAND[tense.attrib['hs']], tense.attrib['partzip']]
-            for tense in verb[1][0] 
-        ]))
+        self.answers = list(
+            flatten(
+                [
+                    [declension.attrib["verb"] for declension in tense]
+                    if tense.tag != "perfekt"
+                    else [SHORTHAND[tense.attrib["hs"]], tense.attrib["partzip"]]
+                    for tense in verb[1][0]
+                ]
+            )
+        )
         self.enter_button = urwid.Button("Enter")
         urwid.connect_signal(self.enter_button, "click", self.on_entry)
         self.listbox_content += [self.enter_button]
@@ -189,9 +193,11 @@ class learn_view(object):
 
     def on_entry(self, button):
         results = [
-            entry.edit_text for entry in self.listbox_content if type(entry) == urwid.Edit
+            entry.edit_text
+            for entry in self.listbox_content
+            if type(entry) == urwid.Edit
         ]
-        print(results) 
+        print(results)
         print([ans.strip() for ans in self.answers])
 
 
