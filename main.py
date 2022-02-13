@@ -9,22 +9,17 @@ from collections.abc import Iterable
 
 tree = ET.parse("dataset.xml")
 root = tree.getroot()
-print(root)
 
 SHORTHAND = {"h": "haben", "s": "sein"}
 
 verben_buch = {}
 
 for verben_gruppe in root:
-    print(verben_gruppe.attrib["gruppe"])
     verben_buch[verben_gruppe.attrib["gruppe"]] = {}
     for verb in verben_gruppe:
         verben_buch[verben_gruppe.attrib["gruppe"]][verb.attrib["infinitiv"]] = [
             tense for tense in verb
         ]
-        print(verb)
-
-print(verben_buch)
 
 palette = [
     ("body", "black", "light gray"),
@@ -65,15 +60,15 @@ def unhandled_input(k):
     if k in ["q", "Q"]:
         raise urwid.ExitMainLoop()
     elif k in ["l", "L"]:
-        focus_widget, idx = views[0].treebox._walker.get_focus()
+        _, idx = initial_view.treebox._walker.get_focus()
         if len(idx) == 3:
-            verb = views[0].tree[1][idx[1]][1][idx[2]]
-        loop.widget = learn_view().build(verb)
+            verb = initial_view.tree[1][idx[1]][1][idx[2]]
+            loop.widget = learn_view().build(verb)
     elif k in ["v", "V"]:
-        focus_widget, idx = views[0].treebox._walker.get_focus()
+        _, idx = initial_view.treebox._walker.get_focus()
         if len(idx) == 3:
-            verb = views[0].tree[1][idx[1]][1][idx[2]]
-        loop.widget = verb_view().build(verb)
+            verb = initial_view.tree[1][idx[1]][1][idx[2]]
+            loop.widget = verb_view().build(verb)
     elif k in ["h", "H"]:
         loop.widget = select_view().build()
 
@@ -109,12 +104,8 @@ class select_view(object):
             ]
         )
 
-        # put the tree into a treebox
         self.treebox = TreeBox(ArrowTree(self.stree))
-
-        # add some decoration
         rootwidget = urwid.AttrMap(self.treebox, "body")
-        # add a text footer
         footer = urwid.AttrMap(urwid.Text("Q to quit, L to learn, V to view"), "focus")
         return urwid.Frame(rootwidget, footer=footer)
 
@@ -244,8 +235,7 @@ class learn_view(object):
 
 print(verben_buch)
 if __name__ == "__main__":
-    views = [select_view()]
 
-    initial_view = views[0].build()
-    loop = urwid.MainLoop(initial_view, palette, unhandled_input=unhandled_input)
+    initial_view = select_view()
+    loop = urwid.MainLoop(initial_view.build(), palette, unhandled_input=unhandled_input)
     loop.run()
