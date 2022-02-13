@@ -53,8 +53,15 @@ def unhandled_input(k):
     if k in ["q", "Q"]:
         raise urwid.ExitMainLoop()
     if k in ["l", "L"]:
-        views[0].selected = views[0].treebox._walker.get_focus()
-        print()
+        if not views[0].selected:
+            views[0].selected = views[0].treebox._walker.get_focus()
+    if k in ["v", "V"]:
+        urwid.ExitMainLoop()
+        focus_widget, idx = views[0].treebox._walker.get_focus()
+        # print(views[0].tree[idx[0]+1][idx[1]+1][idx[2]])
+        if len(idx) == 3:
+            verb = (views[0].tree[1][idx[1]][1][idx[2]])
+        loop.widget = verb_view().build(verb)
 
 
 class select_view(object):
@@ -62,7 +69,18 @@ class select_view(object):
         self.selected = False
 
     def build(self):
-        stree = SimpleTree(
+        self.tree = [
+                    "All",
+                    [
+                        [
+                            k,
+                            [[verb, data] for verb, data in v.items()],
+                        ]
+                        for k, v in verben_buch.items()
+                    ],
+                ]
+            
+        self.stree = SimpleTree(
             [
                 [
                     FocusableText("All"),
@@ -78,7 +96,7 @@ class select_view(object):
         )
 
         # put the tree into a treebox
-        self.treebox = TreeBox(ArrowTree(stree))
+        self.treebox = TreeBox(ArrowTree(self.stree))
 
         # add some decoration
         rootwidget = urwid.AttrMap(self.treebox, "body")
@@ -86,6 +104,17 @@ class select_view(object):
         footer = urwid.AttrMap(urwid.Text("Q to quit, L to learn"), "focus")
         return urwid.Frame(rootwidget, footer=footer)
 
+
+class verb_view(object):
+    def __init__(self):
+        pass
+    
+    def build(self, verb):
+        title = urwid.Text(verb[0])
+        body = urwid.Text("Hello")
+        body = urwid.Pile([title,body])
+        fill = urwid.Filler(body)
+        return fill
 
 print(verben_buch)
 if __name__ == "__main__":
